@@ -1,0 +1,33 @@
+﻿@model Empleado;
+
+<div class="row">
+    <div class="col-sm-8 offset-sm-2">
+        <h2>¿DESEA ELIMINAR AL EMPLEADO?</h2>
+        <hr />
+        <h5>El empleado se eliminará de forma permanente</h5>
+        <form asp-controller="Empleado" asp-action="Eliminar" method="post">
+            <input asp-for="Id" type="hidden" />
+            <div class="mb-3">
+                <label>Nombre Completo</label>
+                <input class="form-control" asp-for="NombreCompleto" type="text" disabled/>
+            </div>
+            <div class="mb-3">
+                <label>Correo</label>
+                <input class="form-control" asp-for="Correo" type="text" disabled/>
+            </div>
+            <div class="mb-3">
+                <label>Fecha de Contrato</label>
+                <input class="form-control" asp-for="FechaContrato" type="date" disabled/>
+            </div>
+            <div class="mb-3">
+                <input class="form-check-input" asp-for="Activo" type="checkbox" id="chkActivo" disabled/>
+                <label class="form-check-label" for="chkActivo">Activo</label>
+            </div>
+            <br />
+            <div class="mb-3">
+                <button class="btn btn-outline-danger" type="submit">Eliminar</button>
+                <a asp-controller="Empleado" asp-action="Lista" class="btn btn-outline-warning">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

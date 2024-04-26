@@ -1,0 +1,39 @@
+﻿@model List<Empleado>;
+
+<div class="row">
+    <div class="col-sm-8 offset-sm-2">
+        <h2>LISTA DE EMPLEADOS</h2>
+        <hr />
+        <a asp-controller="Empleado" asp-action="Agregar" class="btn btn-outline-success">Agregar</a>
+        <br />
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre Completo</th>
+                    <th>Correo</th>
+                    <th>F. Contrato</th>
+                    <th>Activo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.NombreCompleto</td>
+                        <td>@item.Correo</td>
+                        <td>@item.FechaContrato.ToString("dd/MM/yyyy")</td>
+                        <td>@(item.Activo ? "SÍ" : "NO")</td>
+                        <td>
+                            <a asp-controller="Empleado" asp-action="Editar" asp-route-id="@item.Id" class="btn btn-outline-warning">Editar</a>
+                            <a asp-controller="Empleado" asp-action="Eliminar" asp-route-id="@item.Id" class="btn btn-outline-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
